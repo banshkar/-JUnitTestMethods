@@ -73,7 +73,7 @@ public class UserRegistration {
         }
     }
     public  String checkPredefinedPasswordAtLeastOneSpecialCase(String  password){
-        Pattern pattern =Pattern.compile("^[A-Z]{1}[a-zA-Z]{5,}[0-9]{1,}[@#%*]$");
+        Pattern pattern =Pattern.compile("^[A-Z]{1}+[a-zA-Z]{5,}[@#%*]+[0-9]{1,}+$");
         Matcher check =pattern.matcher(password);
         if(check.matches()){
             return "Happy!";
@@ -87,6 +87,6 @@ public class UserRegistration {
 //        Scanner sc =new Scanner(System.in);
 //        System.out.println("Enter password");
 //        String password= sc.nextLine();
-//        System.out.println(m.checkPredefinedPasswordAtLeastOneNUMber(password));
+//        System.out.println(m.checkPredefinedPasswordAtLeastOneSpecialCase(password));
 //    }
 }

@@ -38,4 +38,9 @@ class UserRegistrationTest {
         String check =user.checkPredefinedPasswordAtLeastOneNUMber("Jitendra1");
         assertEquals("Happy!",check);
     }
+    @Test
+    public void givingPasswordAtLeastOneSpecialCaseForCheckingValidOrInvalid(){
+        String check =user.checkPredefinedPasswordAtLeastOneSpecialCase("Jitendra@1234");
+        assertEquals("Happy!",check);
+    }
 }
