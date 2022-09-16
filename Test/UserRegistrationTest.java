@@ -18,5 +18,10 @@ class UserRegistrationTest {
         String check =user.checkEmail("abc.xyz@bc.com.in");
         assertEquals("Happy!",check);
     }
+    @Test
+    public void givingMobileNUmberForCheckingValidOrInvalid(){
+        String check =user.checkMobileWithSpace("91 8035826412");
+        assertEquals("Happy!",check);
+    }
 
 }

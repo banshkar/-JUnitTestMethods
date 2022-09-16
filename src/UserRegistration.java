@@ -32,11 +32,21 @@ public class UserRegistration {
             return "Sad";
         }
     }
-//    public static void main(String[] args) {
-//        UserRegistration m =new UserRegistration();
-//        Scanner sc =new Scanner(System.in);
-//        System.out.println("Enter Email");
-//        String email = sc.nextLine();
-//        System.out.println(m.checkEmail(email));
-//    }
+    public  String checkMobileWithSpace(String mobileNumber){
+        Pattern pattern =Pattern.compile("^?(91)+\\s+[0-9]{10}+$");
+        Matcher check =pattern.matcher( mobileNumber);
+        if(check.matches()){
+            return "Happy!";
+        }
+        else {
+            return "Sad";
+        }
+    }
+    public static void main(String[] args) {
+        UserRegistration m =new UserRegistration();
+        Scanner sc =new Scanner(System.in);
+        System.out.println("Enter Mobile Number");
+        String mobile = sc.nextLine();
+        System.out.println(m.checkMobileWithSpace(mobile));
+    }
 }
