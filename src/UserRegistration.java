@@ -62,11 +62,31 @@ public class UserRegistration {
             return "Sad";
         }
     }
+    public  String checkPredefinedPasswordAtLeastOneNUMber(String  password){
+        Pattern pattern =Pattern.compile("^[A-Z]{1}[a-zA-Z]{6,}+[0-9]{1,}+$");
+        Matcher check =pattern.matcher(password);
+        if(check.matches()){
+            return "Happy!";
+        }
+        else {
+            return "Sad";
+        }
+    }
+    public  String checkPredefinedPasswordAtLeastOneSpecialCase(String  password){
+        Pattern pattern =Pattern.compile("^[A-Z]{1}[a-zA-Z]{5,}[0-9]{1,}[@#%*]$");
+        Matcher check =pattern.matcher(password);
+        if(check.matches()){
+            return "Happy!";
+        }
+        else {
+            return "Sad";
+        }
+    }
 //    public static void main(String[] args) {
 //        UserRegistration m =new UserRegistration();
 //        Scanner sc =new Scanner(System.in);
 //        System.out.println("Enter password");
 //        String password= sc.nextLine();
-//        System.out.println(m.checkPredefinedPasswordAtLeastOneUpperCase(password));
+//        System.out.println(m.checkPredefinedPasswordAtLeastOneNUMber(password));
 //    }
 }

@@ -30,7 +30,12 @@ class UserRegistrationTest {
     }
     @Test
     public void givingPasswordAtLeastOneUpperForCheckingValidOrInvalid(){
-        String check =user.checkPredefinedPassword("Jitendra");
+        String check =user.checkPredefinedPasswordAtLeastOneUpperCase("Jitendra");
+        assertEquals("Happy!",check);
+    }
+    @Test
+    public void givingPasswordAtLeastOneNumberForCheckingValidOrInvalid(){
+        String check =user.checkPredefinedPasswordAtLeastOneNUMber("Jitendra1");
         assertEquals("Happy!",check);
     }
 }
