@@ -28,4 +28,9 @@ class UserRegistrationTest {
         String check =user.checkPredefinedPassword("jitendrabanshkar");
         assertEquals("Happy!",check);
     }
+    @Test
+    public void givingPasswordAtLeastOneUpperForCheckingValidOrInvalid(){
+        String check =user.checkPredefinedPassword("Jitendra");
+        assertEquals("Happy!",check);
+    }
 }

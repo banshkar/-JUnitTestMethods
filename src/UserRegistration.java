@@ -42,9 +42,19 @@ public class UserRegistration {
             return "Sad";
         }
     }
-    public  String checkPredefinedPassword(String mobileNumber){
-        Pattern pattern =Pattern.compile("^[a-zA-Z]{8,}+$");
-        Matcher check =pattern.matcher( mobileNumber);
+    public  String checkPredefinedPassword(String  password){
+        Pattern pattern =Pattern.compile("^[A-Za-z]{8,}+$");
+        Matcher check =pattern.matcher(password);
+        if(check.matches()){
+            return "Happy!";
+        }
+        else {
+            return "Sad";
+        }
+    }
+    public  String checkPredefinedPasswordAtLeastOneUpperCase(String  password){
+        Pattern pattern =Pattern.compile("^[A-Z]{1}+[a-zA-Z]{7,}+$");
+        Matcher check =pattern.matcher(password);
         if(check.matches()){
             return "Happy!";
         }
@@ -57,6 +67,6 @@ public class UserRegistration {
 //        Scanner sc =new Scanner(System.in);
 //        System.out.println("Enter password");
 //        String password= sc.nextLine();
-//        System.out.println(m.checkPredefinedPassword(password));
+//        System.out.println(m.checkPredefinedPasswordAtLeastOneUpperCase(password));
 //    }
 }
