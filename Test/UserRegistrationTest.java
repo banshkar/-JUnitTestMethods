@@ -9,4 +9,9 @@ class UserRegistrationTest {
        String check =user.checkValid("JITENDRA");
        assertEquals("Happy!",check);
     }
+    @Test
+    public void givingLastNameForChecking(){
+        String check =user.checkLastName("BANSHKAR");
+        assertEquals("Happy!",check);
+    }
 }

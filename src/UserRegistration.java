@@ -12,8 +12,14 @@ public class UserRegistration {
             return "Sad";
         }
     }
-//    public static void main(String[] args) {
-//        UserRegistration b =new UserRegistration();
-//        System.out.println( b.isValid("JI"));
-//    }
+    public  String checkLastName(String lastName){
+        Pattern pattern =Pattern.compile("^[A-Z]{3,}+$");
+        Matcher check =pattern.matcher(lastName);
+        if(check.matches()){
+            return "Happy!";
+        }
+        else {
+            return "Sad";
+        }
+    }
 }
