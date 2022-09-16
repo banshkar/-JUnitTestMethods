@@ -23,5 +23,9 @@ class UserRegistrationTest {
         String check =user.checkMobileWithSpace("91 8035826412");
         assertEquals("Happy!",check);
     }
-
+    @Test
+    public void givingPasswordForCheckingValidOrInvalid(){
+        String check =user.checkPredefinedPassword("jitendrabanshkar");
+        assertEquals("Happy!",check);
+    }
 }

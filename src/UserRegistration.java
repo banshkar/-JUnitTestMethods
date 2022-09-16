@@ -42,11 +42,21 @@ public class UserRegistration {
             return "Sad";
         }
     }
-    public static void main(String[] args) {
-        UserRegistration m =new UserRegistration();
-        Scanner sc =new Scanner(System.in);
-        System.out.println("Enter Mobile Number");
-        String mobile = sc.nextLine();
-        System.out.println(m.checkMobileWithSpace(mobile));
+    public  String checkPredefinedPassword(String mobileNumber){
+        Pattern pattern =Pattern.compile("^[a-zA-Z]{8,}+$");
+        Matcher check =pattern.matcher( mobileNumber);
+        if(check.matches()){
+            return "Happy!";
+        }
+        else {
+            return "Sad";
+        }
     }
+//    public static void main(String[] args) {
+//        UserRegistration m =new UserRegistration();
+//        Scanner sc =new Scanner(System.in);
+//        System.out.println("Enter password");
+//        String password= sc.nextLine();
+//        System.out.println(m.checkPredefinedPassword(password));
+//    }
 }
