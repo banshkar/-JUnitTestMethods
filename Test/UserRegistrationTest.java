@@ -43,4 +43,9 @@ class UserRegistrationTest {
         String check =user.checkPredefinedPasswordAtLeastOneSpecialCase("Jitendra@1234");
         assertEquals("Happy!",check);
     }
+    @Test
+    public void givingEmailSamplesProvidedSearatelyForCheckingValidOrInvalid(){
+        String check =user.checkEmailSamplesProvidedSearately("jitendra07@gmail.com");
+        assertEquals("Happy!",check);
+    }
 }

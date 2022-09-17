@@ -72,8 +72,18 @@ public class UserRegistration {
             return "Sad";
         }
     }
-    public  String checkPredefinedPasswordAtLeastOneSpecialCase(String  password){
+    public  String checkPredefinedPasswordAtLeastOneSpecialCase(String  email){
         Pattern pattern =Pattern.compile("^[A-Z]{1}+[a-zA-Z]{5,}[@#%*]+[0-9]{1,}+$");
+        Matcher check =pattern.matcher(email);
+        if(check.matches()){
+            return "Happy!";
+        }
+        else {
+            return "Sad";
+        }
+    }
+    public  String checkEmailSamplesProvidedSearately(String  password){
+        Pattern pattern =Pattern.compile("^[a-zA-Z0-9]+?(@gmail.com)+$");
         Matcher check =pattern.matcher(password);
         if(check.matches()){
             return "Happy!";
@@ -82,11 +92,11 @@ public class UserRegistration {
             return "Sad";
         }
     }
-//    public static void main(String[] args) {
-//        UserRegistration m =new UserRegistration();
-//        Scanner sc =new Scanner(System.in);
-//        System.out.println("Enter password");
-//        String password= sc.nextLine();
-//        System.out.println(m.checkPredefinedPasswordAtLeastOneSpecialCase(password));
-//    }
+    public static void main(String[] args) {
+        UserRegistration m =new UserRegistration();
+        Scanner sc =new Scanner(System.in);
+        System.out.println("Enter password");
+        String password= sc.nextLine();
+        System.out.println(m.checkEmailSamplesProvidedSearately(password));
+    }
 }
