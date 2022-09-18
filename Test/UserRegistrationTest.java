@@ -6,35 +6,32 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Scanner;
 import static org.junit.jupiter.api.Assertions.*;
-@RunWith(Parameterized.class)
 class UserRegistrationTest {
-      private  String email;
-      private  boolean result;
-      private  UserRegistration user ;
-      public UserRegistrationTest(String email,boolean result){
-          super();
-          this.email=email;
-          this.result=result;
-      }
-      @Before
-      public void initial(){
-          user =new UserRegistration();
-      }
-    @Parameterized.Parameters
-    public  static Collection inputEmail(){
-          return Arrays.asList(new Object[][]{
-                  {"abc.100@yahoo.com",true},
-                  {"abc-100@yahoo.com",true},
-                  {"abc+100@yahoo.com",true},
-                  {"abc100@ab.com.com",false},
-                  {"abc.100@12.com",false},
-                  {"abc.100.df@yahoo.com.com",false},
-                  {"abc.100.@@yahoo.com",false},
-          });
+   UserRegistration userRegistration =new UserRegistration();
+    @Test
+    public void givenFirstName_Should_ReturnHappy(){
+        String result =userRegistration.checkFirstName("Jitendra");
+        assertEquals("HAPPY",result);
     }
     @Test
-    public void givingEmailSamplesProvidedSearatelyForCheckingValidOrInvalid(){
-        System.out.println("result"+result);
-    assertEquals(result,user.checkEmailSamplesProvidedSearately(email));
+    public void givenLastName_Should_ReturnHappy(){
+        String result =userRegistration.checkLastName("Banshkar");
+        assertEquals("HAPPY",result);
+
+    }
+    @Test
+    public void givenEmail_Should_ReturnHappy(){
+        String result =userRegistration.checkEmailSamplesProvidedSearately("jitendra123@gmail.com");
+        assertEquals("HAPPY",result);
+    }
+    @Test
+    public void givenMobile_Should_ReturnHappy(){
+        String result =userRegistration.checkMobile("91 8525646312");
+        assertEquals("HAPPY",result);
+    }
+    @Test
+    public void givenPassword_Should_ReturnHappy(){
+        String result =userRegistration.checkPassword("Jitendra@123");
+        assertEquals("HAPPY",result);
     }
 }
