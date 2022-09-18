@@ -2,56 +2,89 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class UserRegistration {
-    public  String checkFirstName(String  firstName){
-        Pattern pattern =Pattern.compile("^[A-Za-z]+$");
+    private  String firstName;
+    private  String lastName;
+    private  String email;
+    private  String mobile;
+    private  String password;
+    public UserRegistration(){
+    }
+    public UserRegistration(String firstName){
+        this.firstName=firstName;
+    }
+    public  String checkFirstName(String  firstName) throws Exception {
+        Pattern pattern =Pattern.compile("^[A-Z]{1}+[a-zA-Z]+$");
         Matcher check =pattern.matcher(firstName);
-        if(check.matches()){
+        try {
+            if(!check.matches()){
+                throw  new UserException(UserException.ExceptionType.YOu_ENTERED_INVALID_DATA,"please enter right data");
+            }
+            if (check.matches()){
+                return "SAD";
+            }
             return "HAPPY";
-        } else {
-            return "SAD";
+        }catch (NullPointerException e){
+            throw  new UserException(UserException.ExceptionType.ENTERED_EMPTY,"please enter data");
         }
     }
-    public  String  checkLastName(String  LastName){
-        Pattern pattern =Pattern.compile("^[A-Za-z]+$");
+    public  String  checkLastName(String  LastName) throws UserException {
+        Pattern pattern =Pattern.compile("^[A-Z]{1}+[a-zA-Z]+$");
         Matcher check =pattern.matcher(LastName);
-        if(check.matches()){
+        try {
+            if(!check.matches()){
+                throw  new UserException(UserException.ExceptionType.YOu_ENTERED_INVALID_DATA,"please enter right data");
+            }
+            if (check.matches()){
+                return "SAD";
+            }
             return "HAPPY";
-        } else {
-            return "SAD";
+        }catch (NullPointerException e){
+            throw  new UserException(UserException.ExceptionType.ENTERED_EMPTY,"please enter data");
         }
     }
-    public  String  checkEmailSamplesProvidedSearately(String  email){
+    public  String  checkEmailSamplesProvidedSearately(String  email) throws UserException {
         Pattern pattern =Pattern.compile("^[a-zA-Z0-9.+-]+[@]+[a-zA-Z]+?(.com)+$");
         Matcher check =pattern.matcher(email);
-        if(check.matches()){
+        try {
+            if(!check.matches()){
+                throw  new UserException(UserException.ExceptionType.YOu_ENTERED_INVALID_DATA,"please enter right data");
+            }
+            if (check.matches()){
+                return "SAD";
+            }
             return "HAPPY";
-        } else {
-            return "SAD";
+        }catch (NullPointerException e){
+            throw  new UserException(UserException.ExceptionType.ENTERED_EMPTY,"please enter data");
         }
     }
-    public  String  checkMobile(String mobile) {
+    public  String  checkMobile(String mobile) throws UserException {
         Pattern pattern = Pattern.compile("^?(91)+\\s+[0-9]{10}+$");
         Matcher check = pattern.matcher(mobile);
-        if (check.matches()) {
+        try {
+            if(!check.matches()){
+                throw  new UserException(UserException.ExceptionType.YOu_ENTERED_INVALID_DATA,"please enter right data");
+            }
+            if (check.matches()){
+                return "SAD";
+            }
             return "HAPPY";
-        } else {
-            return "SAD";
+        }catch (NullPointerException e){
+            throw  new UserException(UserException.ExceptionType.ENTERED_EMPTY,"please enter data");
         }
     }
-    public   String  checkPassword(String Password) {
+    public   String  checkPassword(String Password) throws UserException {
         Pattern pattern = Pattern.compile("^[A-Z]{1}+[a-zA-Z]{5,}+[@]+[0-9]{1,}+$");
         Matcher check = pattern.matcher(Password);
-        if (check.matches()) {
+        try {
+            if(!check.matches()){
+                throw  new UserException(UserException.ExceptionType.YOu_ENTERED_INVALID_DATA,"please enter right data");
+            }
+            if (check.matches()){
+                return "SAD";
+            }
             return "HAPPY";
-        } else {
-            return "SAD";
+        }catch (NullPointerException e){
+            throw  new UserException(UserException.ExceptionType.ENTERED_EMPTY,"please enter data");
         }
-    }
-    public static void main(String[] args) {
-        UserRegistration m =new UserRegistration();
-        Scanner sc =new Scanner(System.in);
-        System.out.println("Enter firstName");
-        String firstName= sc.nextLine();
-        System.out.println(m.checkPassword(firstName));
     }
 }
